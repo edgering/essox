@@ -1,6 +1,7 @@
 # Třída pro implementaci kalkulace spotřebního úvěru ESSOX
 
-    $_ESSOX => new Essox();
+    $_ESSOX = new Essox();
+    $_ESSOX->readConfig($CONFIG);
 
 ## Získání Tokenu
 
