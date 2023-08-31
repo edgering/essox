@@ -67,15 +67,13 @@ class ESSOX
 
         // -- Clint ID a Client Secret
 
-        $this->config["consumer_key_production"] = 'riS6J1RqP62qWigcel1WwsSddeAa';
-        $this->config["consumer_secret_production"] = 'mk3vwr_hu8xyJsgcaGDze2PwVUwa';
+        $this->config["consumer_key_production"] = 'riS6J1RqP62qWigcel1Wws______';
+        $this->config["consumer_secret_production"] = 'mk3vwr_hu8xyJsgcaGDze2______';
 
-        // --- !!! PRODUKTION Z TESTOVACÍHO PROSTŘEDÍ !!! ---
-        // --- SANDBOX CLIENT ID A CLIENT SECRET SE NEPOUŽÍVAJÍ ---
-        // --- POUŽÍVÁ SE PRODUKČNÍ CLIENT ID A CLIENT SECRET A PŘEPÍNÁ SE URL ---
+        // !! V TESTOVACÍM PROSTŘEDÍ SE NEPOUŽÍVÁ SANDBOX ALE PRODUKČNÍ CLIENT ID A CLIENT SECRET ---
 
-        $this->config["consumer_key_sandbox"] = 'ugRZ6fNenPrat_F10imZ9xtQT5ca';
-        $this->config["consumer_secret_sandbox"] = 'PspiO59taLKHjRbFTVm7CyZ7k1sa';
+        $this->config["consumer_key_sandbox"] = 'ugRZ6fNenPrat_F10imZ9x______';
+        $this->config["consumer_secret_sandbox"] = 'PspiO59taLKHjRbFTVm7Cy______';
 
         /** **/
 

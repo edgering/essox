@@ -49,7 +49,13 @@ Není potřeba volat samostatně. Automaticky se provede při prvním volání A
 
     // $_ESSOX->getSplatkyParams();
 
-    (array)$_ESSOX->calcLink($data);
+    $result = (FALSE || array)$_ESSOX->calcLink($data);
+
+## Rozložená platba
+
+Zjistí, zda je možné rozložit platbu na splátky. Pokud ano, vrátí výši splátky.
+    
+    (FALSE || float) $_ESSOX->getRozlozenaPlatba((float)$cena);
 
 ## Odkazy
 
