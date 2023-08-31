@@ -1,16 +1,16 @@
-#Třída pro implementaci kalkulace spotřebního úvěru ESSOX
+# Třída pro implementaci kalkulace spotřebního úvěru ESSOX
 
     $_ESSOX => new Essox();
 
-##Získání Tokenu
+## Získání Tokenu
 
     $_ESSOX->newToken();
 
-##Odkaz na kalkulačku
+## Odkaz na kalkulačku
 
     $_ESSOX->calcLink();
 
-##Odkaz na splátky + odeslání žádosti
+## Odkaz na splátky + odeslání žádosti
     
     $data = array()
 
@@ -18,9 +18,9 @@
 
     $_ESSOX->calcLink($data);
 
-##Odkazy
+## Odkazy
 
-###Endpoint API kalkulace: 
+### Endpoint API kalkulace: 
 
 - Produkční prostředí: https://apiv32.essox.cz/consumergoods/v1/api/consumergoods/calculator
 - Testovací prostředí: https://testapiv32.essox.cz/consumergoods/v1/api/consumergoods/calculator
