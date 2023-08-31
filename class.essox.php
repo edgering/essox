@@ -1,15 +1,9 @@
 <?php
 
 /**
- *  ESSOX
+ *  ESSOX SDK 
  * 
  *  08/2023
- * 
- * 
- * Endpoint API kalkulace: 
- *
- *  - Produkční prostředí: https://apiv32.essox.cz/consumergoods/v1/api/consumergoods/calculator
- *  - Testovací prostředí: https://testapiv32.essox.cz/consumergoods/v1/api/consumergoods/calculator
  * 
  *  ! v testovacím prostředí se používá produkční Client_id a Client_secret
  * 
@@ -65,17 +59,6 @@ class ESSOX
     }
 
     // -- Pro přihlášení do portálu
-
-    /** 
-     *  Credentials Client_id a Client_secret zjistíte prostřednictvím API store na URL: 
-     *
-     *  - Produkční credentials: https://developersv32.essox.cz/devportal/
-     *  - Testovací credentials: https://testdevelopersv32.essox.cz/devportal/
-     * 
-     *   portal_login_test = "303783014eshop";
-     *   portal_password_test = "OM014API";
-     *
-     */
 
     function defaultConfig()
     {
@@ -341,7 +324,7 @@ class ESSOX
 
     /**
      *  SPLÁTKY
-     */ 
+     */
 
     function getSplatky($data)
     {
@@ -365,7 +348,7 @@ class ESSOX
         }
 
         $data = json_encode($data);
-        
+
         if ($response = $this->CURL($url, $headers, $data)) {
 
             return $response;
@@ -375,10 +358,10 @@ class ESSOX
     }
 
     function getSplatkyParams()
-    {        
-        ?>
+    {
+?>
         <code>
-        {
+            {
             "firstName": "string",
             "surname": "string",
             "mobilePhonePrefix": "string",
@@ -390,17 +373,17 @@ class ESSOX
             "customerId": "string",
             "transactionId": "string",
             "shippingAddress": {
-              "street": "string",
-              "houseNumber": "string",
-              "city": "string",
-              "zip": "string"
+            "street": "string",
+            "houseNumber": "string",
+            "city": "string",
+            "zip": "string"
             },
             "callbackUrl": "string",
             "spreadedInstalments": true
-          }   
+            }
         </code>
 
-          <?php
+<?php
     }
 
     /**
@@ -426,6 +409,10 @@ class ESSOX
     {
         foreach ($source as $key => $value) {
             $this->config[$key] = $value;
+
+            if (isset($this->$key)) {
+                $this->$key = $value;
+            }
         }
     }
 }
