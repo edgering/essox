@@ -10,15 +10,15 @@ require_once("class.essox.php");
 
 $_ESSOX = new ESSOX();
 
-// $_ESSOX->newToken();
 // $_ESSOX->setProduction(TRUE);
+// $_ESSOX->newToken();
 
-// echo $_ESSOX->getSplatky();
-// echo $_ESSOX->getKalkulackaUrl(2300, 666);
+// $url = $_ESSOX->getKalkulackaUrl(2300, 666);
+
 
 $ESSOX_DATA = array(
-    "firstName" => "Jirka",
-    "surname" => "Kopřiva",
+    "firstName" => "Lorne",
+    "surname" => "Balmer",
     "mobilePhonePrefix" => "+420",
     "mobilePhoneNumber" => "775123456",
     "email" => "tester@edgering.org",
@@ -37,8 +37,7 @@ $ESSOX_DATA = array(
     "spreadedInstalments" => true,
 );
 
-echo $_ESSOX->getSplatky($ESSOX_DATA);
+$response = $_ESSOX->getSplatky($ESSOX_DATA);
 
-//echo $_ESSOX->getToken();
 
 $_ESSOX->log->debugEvents();
