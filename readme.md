@@ -33,7 +33,7 @@ Config mandatory:
         "consumer_secret_sandbox" => 'PspiO59taLKHjRbFTVm7Cy______',
     );        
 
-    // Zapnutí produkční verze. Default je sandbox.
+Zapnutí produkční verze. Default je sandbox.
 
     $_ESSOX->setProduction();
 
@@ -56,7 +56,7 @@ Není potřeba volat samostatně. Automaticky se provede při prvním volání A
 
     // $_ESSOX->getSplatkyParams();
 
-    $result = (FALSE || array)$_ESSOX->calcLink($data);
+    (FALSE || array) $_ESSOX->calcLink($data);
 
 ## Rozložená platba
 
