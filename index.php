@@ -1,4 +1,8 @@
 <?php
+/**
+ *  ESSOX API PHP SDK
+ * 
+ */
 
 require_once("class.eventlog.php");
 require_once("class.session.php");
