@@ -2,19 +2,19 @@
 
     $_ESSOX = new Essox();
 
-    // turn off using session for token
+Turn off using session for token
 
     $_ESSOX->tokenUseSession = FALSE;
 
-    // set own session name
+Set own session name
 
     $_ESSOX->session_name = "name_of_session";
 
-    // to set config data
+To set config data
 
     $_ESSOX->readConfig($CONFIG);
 
-config mandatory:
+Config mandatory:
 
     $CONFIG = array(
         
@@ -26,8 +26,7 @@ config mandatory:
         "consumer_secret_production" => 'mk3vwr_hu8xyJsgcaGDze2PwVUwa',
 
         /**
-         *  PRODUKČNÍ KLÍČE z testovacího prostředí.
-         * 
+         *  PRODUKČNÍ KLÍČE z testovacího prostředí.         
          */
 
         "consumer_key_sandbox" => 'ugRZ6fNenPrat_F10imZ9x______',
