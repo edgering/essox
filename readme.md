@@ -4,31 +4,39 @@
 
     // turn off using session for token
 
-    // $_ESSOX->tokenUseSession = FALSE;
+    $_ESSOX->tokenUseSession = FALSE;
 
     // set own session name
 
-    // $_ESSOX->session_name = "name_of_session";
+    $_ESSOX->session_name = "name_of_session";
 
-    // -- to set base config data
+    // to set config data
 
     $_ESSOX->readConfig($CONFIG);
 
+config mandatory:
+
     $CONFIG = array(
+        
+        /**
+         *  PRODUKČNÍ KLÍČE z produkčního prostředí.
+         */
+
         "consumer_key_production" => 'riS6J1RqP62qWigcel1WwsSddeAa',
         "consumer_secret_production" => 'mk3vwr_hu8xyJsgcaGDze2PwVUwa',
 
-        "consumer_key_sandbox" => 'ugRZ6fNenPrat_F10imZ9xtQT5ca',
-        "consumer_secret_sandbox" => 'PspiO59taLKHjRbFTVm7CyZ7k1sa',
+        /**
+         *  PRODUKČNÍ KLÍČE z testovacího prostředí.
+         * 
+         */
 
-        "rozlozena_platba" => 4,
-        "rozlozena_platba_min_price" => 2000,
-        "rozlozena_platba_max_price" => 30000,
-
-        "splatky_min_price" => 2000,
-        "splatky_max_price" => 2000000,
-        "calc_redirect_expire" => 5 * 60,
+        "consumer_key_sandbox" => 'ugRZ6fNenPrat_F10imZ9x______',
+        "consumer_secret_sandbox" => 'PspiO59taLKHjRbFTVm7Cy______',
     );        
+
+    // Zapnutí produkční verze. Default je sandbox.
+
+    $_ESSOX->setProduction();
 
 
 ## Získání Tokenu
