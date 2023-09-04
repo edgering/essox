@@ -22,7 +22,12 @@ class ESSOX
 
     var $production = FALSE;
 
+    // (bool) to allow to disable from config
+
+    var $DISABLE = FALSE;
+
     // (string) token
+
     var $TOKEN = FALSE;
 
     /**
@@ -67,13 +72,13 @@ class ESSOX
 
         // -- Clint ID a Client Secret
 
-        $this->config["consumer_key_production"] = 'riS6J1RqP62qWigcel1Wws______';
-        $this->config["consumer_secret_production"] = 'mk3vwr_hu8xyJsgcaGDze2______';
+        $this->config["consumer_key_production"] = 'ugRZ6fNenPrat_F10imZ9xtQT5ca';
+        $this->config["consumer_secret_production"] = 'PspiO59taLKHjRbFTVm7CyZ7k1sa';
 
-        // !! V TESTOVACÍM PROSTŘEDÍ SE NEPOUŽÍVÁ SANDBOX ALE PRODUKČNÍ CLIENT ID A CLIENT SECRET ---
+        // !! V TESTOVACÍM PROSTŘEDÍ SE POUŽÍVÁ PRODUKČNÍ CLIENT ID A CLIENT SECRET ---
 
-        $this->config["consumer_key_sandbox"] = 'ugRZ6fNenPrat_F10imZ9x______';
-        $this->config["consumer_secret_sandbox"] = 'PspiO59taLKHjRbFTVm7Cy______';
+        $this->config["consumer_key_sandbox"] = 'ugRZ6fNenPrat_F10imZ9xtQT5ca';
+        $this->config["consumer_secret_sandbox"] = 'PspiO59taLKHjRbFTVm7CyZ7k1sa';
 
         /** **/
 
@@ -220,7 +225,7 @@ class ESSOX
 
     function getToken($forceSession = NULL)
     {
-        $this->log->event("Získání tokenu");
+        $this->log->event(sprintf("Získání tokenu (verze: %s)", $this->production ? "PRODUCTION" : "SANDBOX"));
 
         if ($this->TOKEN !== FALSE) {
 
@@ -318,6 +323,18 @@ class ESSOX
         }
 
         return round($cena / $this->config["rozlozena_platba"], 2);
+    }
+
+    /**
+     *  SPLÁTKY
+     * 
+     *  return TRUE if splatky are allowed
+     * 
+     */
+
+    function nabizetSplatky($cena)
+    {
+        return !$this->DISABLE && $cena >= $this->config["splatky_min_price"] && $cena <= $this->config["splatky_max_price"];
     }
 
     /**

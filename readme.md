@@ -1,10 +1,12 @@
 # Implementace ESSOX - API v PHP
 
+update 2023-09-04  
+
     $_ESSOX = new Essox();
 
 Turn off using session for token
 
-    $_ESSOX->tokenUseSession = FALSE;
+    $_ESSOX->disableTokenSession();
 
 Set own session name
 
@@ -12,7 +14,7 @@ Set own session name
 
 To set config data
 
-    $_ESSOX->readConfig($CONFIG);
+    $_ESSOX->readConfig((array)$CONFIG);
 
 Config mandatory:
 
@@ -42,7 +44,10 @@ Zapnutí produkční verze. Default je sandbox.
 
     (string)$_ESSOX->newToken();
 
-Není potřeba volat samostatně. Automaticky se provede při prvním volání API.
+Není potřeba volat samostatně. Automaticky se provede při prvním volání API.   
+
+Toto volání resetuje časový limit platnosti tokenu od začátku
+
 
 ## Odkaz na kalkulačku
 
