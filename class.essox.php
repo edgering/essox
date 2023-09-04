@@ -307,11 +307,14 @@ class ESSOX
 
     function getRozlozenaPlatba($cena = NULL)
     {
-        if (!isset($this->config["rozlozena_platba"])) {
+        if (!isset($this->config["rozlozena_platba"]) || !$this->config["rozlozena_platba"]) {
             return FALSE;
         }
 
         if ($cena === NULL) {
+            
+            // -- as getter -> na kolik dílů je rozložená
+
             return $this->config["rozlozena_platba"];
         }
 
@@ -326,7 +329,7 @@ class ESSOX
     }
 
     /**
-     *  SPLÁTKY
+     *  SPLÁTKY (fast check)
      * 
      *  return TRUE if splatky are allowed
      * 
@@ -417,8 +420,11 @@ class ESSOX
     }
 
     /**
-     *  Allow to read config from array
+     * CONFIG
      */
+
+
+    // Allow to read config from array
 
     function readConfig($source)
     {
@@ -429,5 +435,14 @@ class ESSOX
                 $this->$key = $value;
             }
         }
+    }
+
+    // Show config data
+
+    function showConfig()
+    {
+        echo "<pre>";
+        print_r($this->config);
+        echo "</pre>";
     }
 }

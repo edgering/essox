@@ -1,22 +1,28 @@
 # Implementace ESSOX - API v PHP
 
-update 2023-09-04  
+(update 2023-09-04)
 
     $_ESSOX = new Essox();
 
-Turn off using session for token
+##Zakázat používání session pro ukládání tokenu
 
     $_ESSOX->disableTokenSession();
 
-Set own session name
+##Nastavit jméno session pro ukládání tokenu. (Default je "essox_token")
 
     $_ESSOX->session_name = "name_of_session";
 
-To set config data
+##Načtení konfigurace z pole
+
+funguje klasicky jako přepsání defaultní konfigurace. 
 
     $_ESSOX->readConfig((array)$CONFIG);
 
-Config mandatory:
+###Zobrazení konfigurace
+
+    $_ESSOX->showConfig();    
+
+###Minimální tvar konfigu
 
     $CONFIG = array(
         
@@ -35,7 +41,7 @@ Config mandatory:
         "consumer_secret_sandbox" => 'PspiO59taLKHjRbFTVm7Cy______',
     );        
 
-Zapnutí produkční verze. Default je sandbox.
+##Zapnutí produkční verze. Default je sandbox.
 
     $_ESSOX->setProduction();
 
